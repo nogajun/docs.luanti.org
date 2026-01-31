@@ -16,6 +16,13 @@ This Wiki page contains the meeting plans for upcoming meetings, and meeting not
 
 ## Upcoming Meetings
 
+## 2026-01-31 (FOSDEM)
+
+* Pizza
+* Governance, organization, development
+
+## Past Meetings
+
 ## 2026-01-04
 
 **Remember to post meetings in the [GitHub discussions](https://github.com/orgs/luanti-org/discussions) in advance**
@@ -31,8 +38,6 @@ Add your points here. Most important comes first.
 
 Also consider:
 - ["One Approval" PRs](https://github.com/luanti-org/luanti/pulls?q=is%3Apr+is%3Aopen+label%3A%22One+approval+%E2%9C%85+%E2%97%BB%EF%B8%8F%22) and decide on whether to merge, request changes or close.
-
-## Past Meetings
 
 ## 2025-10-05
 **Organization Discussion**
