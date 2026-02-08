@@ -12,7 +12,8 @@ from a previous portable folder to the to the new location.
 
 #### 1. Run the new Luanti version
 
-First you need to start the downloaded `luanti-5.XX.0.exe` file at least once.
+First, make sure you have [downloaded the installer](https://www.luanti.org/en/downloads/)
+called `luanti-5.XX.X.exe` and run it at least once.
 
 Navigate directly to the "About" tab and click on the "Open user data directory"
 button:
