@@ -207,8 +207,8 @@ git merge -s ours origin/stable-5
 git push origin HEAD:stable-5
 
 # To verify that this worked correctly you can see that both of these are empty:
-git diff ${version}...origin/stable-5
-git diff origin/stable-5...${version}
+git diff ${version}...HEAD
+git diff HEAD...${version}
 ```
 
 ### Tag Android deps
