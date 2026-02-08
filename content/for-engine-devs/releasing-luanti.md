@@ -127,7 +127,7 @@ Since the patch release needs to "bypass" the commits already made on the develo
 you need to check-out the `5.x.x` tag it bases on.
 After that, simply use `git cherry-pick` to get the desired bug fixes onto the branch.
 
-Keeping the commits in chronological order (old to new, as on the development branch) is reccommend.
+Keeping the commits in chronological order (old to new, as on the development branch) is recommend.
 
 _Warning_: Do not base the backport branch on `stable-5`. We want linear history and the commits will be merged into there later.
 
