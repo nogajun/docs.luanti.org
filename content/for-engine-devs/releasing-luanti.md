@@ -64,6 +64,8 @@ New features aren't accepted during this time while people focus on finding and 
 
 ### Autogenerate files
 
+(_Skip for patch releases_)
+
 Also update the [translation](/for-creators/translation) templates:
 
 - Engine: Regenerate Gettext files with `util/updatepo.sh`. Note that before that, you most likely want to [import existing changes](#Update_translations_from_Weblate) first.
@@ -74,6 +76,8 @@ Also ensure that the `language` setting enum values contains `en`: there is no "
 Read [Translation](/for-creators/translation) for details.
 
 ### Update source strings on Weblate
+
+(_Skip for patch releases_)
 
 Make sure that the source strings on hosted.weblate.org are up-to-date.
 
@@ -89,17 +93,20 @@ Verify that all \*.po files have a valid value for these strings because transla
 
 ### Update translations from Weblate
 
+_Note_: This is usually skipped for patch releases and in fact only possible if the translation files on the development branch were **not** yet updated after release.
+
 **How to do this** -> [How to merge translations from Hosted Weblate](/for-creators/translation/#how-to-merge-translations-from-hosted-weblate)
 
 If doing a backported release, you can use the following command to cherry-pick all translation commits from weblate:
-
-```
+```sh
 git log --reverse --pretty=format:"%h" $BASE..weblate/master -- po | xargs -L1 git cherry-pick
 ```
 
-BASE is the commit on master to start from when looking for translation commits. This commit should be newer than the last translation commit on the backport-X branch.
+BASE is the commit on master to start from when looking for translation commits.
 
 ### Update main menu credits
+
+(_Skip for patch releases_)
 
 This consists of:
 
@@ -109,9 +116,21 @@ This consists of:
 - Editing `builtin/mainmenu/credits.json` and putting the results there
 - Don't forget to update the list of core developers if that changed
 
-### Update website credits
+Once the credits are decided on in the previous step, **update the website** to be in sync with the mainmenu.
+Simply copy the same `credits.json` to here: https://github.com/luanti-org/luanti-org.github.io/tree/master/_data
 
-Once the credits are decided on in the previous step, update the website to be in sync with the mainmenu. Simply copy the same `credits.json` to here: https://github.com/luanti-org/luanti-org.github.io/tree/master/_data
+### Cherry-pick commits to separate branch
+
+(_For patch releases only_)
+
+Since the patch release needs to "bypass" the commits already made on the development branch,
+you need to check-out the `5.x.x` tag it bases on.
+After that, simply use `git cherry-pick` to get the desired bug fixes onto the branch.
+
+Keeping the commits in chronological order (old to new, as on the development branch) is reccommend.
+
+_Warning_: Do not base the backport branch on `stable-5`. We want linear history and the commits will be merged into there later.
+
 ### Update changelog
 
 Update [the changelog](/about/changelog).
@@ -139,19 +158,21 @@ The process with patch releases is slightly different but the script will take c
 
 ### Build Windows version
 
-As of [December 2023](https://github.com/luanti-org/luanti/pull/14098), we use the **mingw** artifacts of the "windows" CI workflow.
+Since 2023, we use the **mingw** artifacts of the "windows" CI workflow.
 
-- Extract the outer ZIP file so that users only have one ZIP file to extract (should be named `luanti-5.x.x-win64.zip`)
+Extract the outer ZIP file so that users only have:
+- one ZIP file to extract (if portable), should be named `luanti-5.x.x-win64.zip`
+- the bare executable (if installer), should be named `luanti-5.x.x.exe`
 
-Note that the correct build only shows up after the release commit has been pushed to Github.
+Note that the correct build only shows up after the release commit has been pushed to Github (use a temporary branch for this).
 
 → → → _**Make sure that the Windows builds work before continuing to do anything**_ ← ← ←
 
 #### Mini checklist of things to test
 
-_Note_: Don't cheat on this by testing in Wine, it has happened that things crash/break in Wine while they are fine on real Windows.
+_Note_: Don't cheat on this by testing in Wine. It has happened that things crash/break in Wine while they are fine on real Windows.
 
-- check that the build identifies itself as 5.x.x not 5.x.x-dev or 5.x.x-abc4de7
+- check that the build identifies itself as 5.x.x, not 5.x.x-dev or 5.x.x-abc4de7
 - click some menu buttons
 - create world with MTG, enter it, exit back to menu
 - open multiplayer tab, attempt to join a server
@@ -160,14 +181,13 @@ _Note_: Don't cheat on this by testing in Wine, it has happened that things cras
 
 ### Upload packages to somewhere
 
-- All official builds are hosted at Github: [https://github.com/luanti-org/luanti/releases](https://github.com/luanti-org/luanti/releases)
-- The Windows build is created by CI
-  - (see above)
+- All official builds are hosted at Github: https://github.com/luanti-org/luanti/releases
+- The Windows build is created by CI (see above)
 - The macOS build is built and signed by SFENCE
   - the file is named something like `luanti_5.11.0-macos11.3_arm64.zip`, which contains the minimum macOS version it can run on.
 - Android APKs are also uploaded here when they're done
-  - these are signed before uploading, see a few sections below
-- There is a PPA for stable builds on Ubuntu (see below).
+  - these are signed before uploading (see a few sections below)
+- There is a PPA for stable builds on Ubuntu (see below)
 
 ### Update branches and tags on GitHub
 
@@ -181,16 +201,20 @@ Usually, merging releases onto the stable branch just consists of adding the com
 
 Therefore, you'll generate merge commits, but this shouldn't be a problem. In the case of merge conflicts, ensure that the changes on stable-5 are all discarded in favor of the tagged commit at master, by doing a merge commit like:
 
-```
-   git checkout version-tag
-   git merge -s ours origin/stable-5
-   git push origin HEAD:stable-5
+```sh
+git checkout ${version}
+git merge -s ours origin/stable-5
+git push origin HEAD:stable-5
 
+# To verify that this worked correctly you can see that both of these are empty:
+git diff ${version}...origin/stable-5
+git diff origin/stable-5...${version}
 ```
 
 ### Tag Android deps
 
-Create a new tag [on this repo](https://github.com/luanti-org/luanti_android_deps/tags) with the version number of the release. This is to make it easier to figure out which state an APK was built from.
+Create a new tag [on this repo](https://github.com/luanti-org/luanti_android_deps/tags) with the version number of the release.
+This is to make it easier to figure out which state an APK was built from.
 
 ### Update Launchpad stable build to get Ubuntu builds for the new version
 
@@ -232,7 +256,9 @@ The build has two steps: first it assembles the source code and uploads it, then
 
 ### Reenable -dev version suffix
 
-(_Skip for patch releases_) Check that the util/bump_version.sh script did the following steps:
+(_Skip for patch releases_)
+
+Check that the util/bump_version.sh script did the following steps:
 
 - **Update** the version number in CMakeLists.txt and the titles of doc/client_lua_api.txt and doc/menu_lua_api.txt
 - **Change** FALSE to TRUE for the line _set(DEVELOPMENT_BUILD FALSE)_ in CMakeLists.txt. This will add the -dev suffix to the version name again.
@@ -257,12 +283,14 @@ The build has two steps: first it assembles the source code and uploads it, then
 - **Flatpak**: open an issue (or contribute) [here](https://github.com/flathub/net.minetest.Minetest)
 - **Gentoo**: has [own version tracking](https://packages.gentoo.org/packages/games-engines/minetest), no need to contact
 
-You can find out how quick various distro are to adopt new versions by visiting [Repology](https://repology.org/project/minetest/history)
-(older history under the `minetest` name, newer history is [here](https://repology.org/project/luanti/history)).
+You can find out how quick various distro are to adopt new versions by visiting [Repology](https://repology.org/project/luanti/history)
+(older history under the [`minetest` name](https://repology.org/project/minetest/history)).
 
 ### ContentDB
 
 #### Add a new version
+
+(_Skip for patch releases_)
 
 Add the new version to the drop-down list of compatible Luanti versions that authors can select for their things.
 
@@ -271,6 +299,8 @@ Note that CDB tells Luanti versions apart by their protocol version so this is o
 People who have access: rubenwardy + ???
 
 #### Package devtest
+
+(_Skip for patch releases_)
 
 Minetest Game is no longer connected to our release cycle, so we can ignore it.
 
