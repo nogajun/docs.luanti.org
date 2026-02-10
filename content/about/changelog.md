@@ -18,7 +18,7 @@ Released on 8 February 2026.
 
 ### Client / Audiovisuals
 - Fix crash when closing the game while the settings menu was open (_SmallJoker_)
-- Formspec styling: positive `borderwidths` values do work now (_Wuzzy2_)
+- Formspec styling: positive `borderwidths` values do work now (_Wuzzy_)
 - Formspec: Fix highlighting elements that cannot be focused (_siliconsniffer_)
 - Improved render-related error handling (_sfan5_)
 - Fix OpenGL compatibility check to re-enable dynamic shadows on macOS (_sfan5_)
@@ -88,7 +88,7 @@ Released on 20 January 2026.
 - `.jpg`/`.jpeg` game backgrounds are now supported (_TheEt1234_)
 - New function `core.path_exists` (_RisingLeaf_)
 - Backport PUC Lua 5.4's `string.{pack,unpack,packsize}` (_appgurueu_)
-- `PlayerHPChangeReason` now provides more information (_Wuzzy2_)
+- `PlayerHPChangeReason` now provides more information (_Wuzzy_)
 - HUD text elements now support colors with alpha (_Zughy_)
 
 ### Misc / Maintenance
