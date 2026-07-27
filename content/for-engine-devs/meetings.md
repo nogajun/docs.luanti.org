@@ -18,9 +18,30 @@ This Wiki page contains the meeting plans for upcoming meetings, and meeting not
 
 **Remember to post meetings in the [GitHub discussions](https://github.com/orgs/luanti-org/discussions) in advance**
 
-## 2026-04-28
+## 2026-08-02
 
 Add your points here. Most important comes first.
+
+**Organization Discussion**
+- Feature freeze and plan release date
+- release RC build
+
+**PR discussion/reviews**
+- Decide which feature PRs to still include in 5.17.0, including
+  - [Visual Effects Vol. 2](https://github.com/luanti-org/luanti/pull/15417) (long overdue)
+  - [Android: access to Luanti's data directory using DocumentsProvider](https://github.com/luanti-org/luanti/pull/17115)
+  - [SSCSM: Wire up item/node definitions](https://github.com/luanti-org/luanti/pull/17326) - is this ready? does it matter for release?
+  - [Make Luanti buildable with ANGLE for macOS, iOS and iPhoneSimulator](https://github.com/luanti-org/luanti/pull/15451)
+
+**Issues**
+- what do we do about [Severe rendering regression when array textures are used](https://github.com/luanti-org/luanti/issues/16896)? apply the hotfix for another release?
+
+Also consider:
+- ["One Approval" PRs](https://github.com/luanti-org/luanti/pulls?q=is%3Apr+is%3Aopen+label%3A%22One+approval+%E2%9C%85+%E2%97%BB%EF%B8%8F%22) and decide on whether to merge, request changes or close.
+
+## Past Meetings
+
+## 2026-04-28
 
 **Organization Discussion**
 - Feature freeze and plan release date
@@ -33,11 +54,6 @@ Add your points here. Most important comes first.
 
 **Issues**
 - what do we do about [Severe rendering regression when array textures are used](https://github.com/luanti-org/luanti/issues/16896)? apply the hotfix for another release?
-
-Also consider:
-- ["One Approval" PRs](https://github.com/luanti-org/luanti/pulls?q=is%3Apr+is%3Aopen+label%3A%22One+approval+%E2%9C%85+%E2%97%BB%EF%B8%8F%22) and decide on whether to merge, request changes or close.
-
-## Past Meetings
 
 ## 2026-02-15
 
