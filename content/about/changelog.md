@@ -12,6 +12,71 @@ Note that not all changes made to the code between releases are listed here. Fix
 If you want a list of _every_ change made between releases see the [commit log](https://github.com/luanti-org/luanti/commits/master).
 
 
+
+## 5.16.0 → 5.17.0
+
+**[Release](https://github.com/luanti-org/luanti/releases/tag/5.17.0)**
+
+Released on 20 August 2026.
+
+⚠️ **This release fixes security vulnerabilities affecting both the client and server. We advise everyone to upgrade immediately.** ⚠️
+
+
+### Client / Audiovisuals
+- Dropdowns now accept selection by (Mouse) Down -> Drag -> Release.
+- Formspecs no longer close when focusing the window (_SmallJoker_)
+- Fix: Formspec `model[]` elements are again animated (_Lars Mueller_,_cx384_)
+- Implement basic gamepad support for in-game actions (not formspecs) (_y5nw_)
+- Support multi-track animations (glTF models) (_Lars Müller_)
+   - E.g. models may now have several, independently controllable animations.
+- Fixed an case where the held item stack (e.g. when dragging) size was no longer displayed correctly (_OgelGames_)
+- The mouse cursor is no longer clamped to window bounds (_Chase Bradley_)
+   - This becomes apparent with high DPI mice and (relatively) low FPS.
+- Shaders: Fix plants flickering when `visual_scale > 1` (_SmallJoker_)
+- Chat: Pressing the Tab key now autocompletes to the next common part of the player name (_SmallJoker_)
+- The (main menu) progress bar now shows more media download details (_cx384_)
+- Formspec: Inventory slots and buttons now stay hovered on update (_CrazyladMT_)
+- Main menu: Mods are now sorted by their technical name (before: directory name) (_SmallJoker_)
+- Mostly fix the appearance of waving liquids (shader) below solid nodes (_ZenonSeth_)
+- Fix an issue where Luanti would not start in certain situations (_sfan5_)
+- Android: read-only access to Luanti's data directory (_Stvk imension_)
+
+### World / Server / Environment
+- Add `dummy` auth backend support (_nerzhul_)
+- Improved collision handling (_SmallJoker_)
+- Mapblocks in view now load more efficiently (_lhofhansl_)
+- The `--debugger` command line argument can now be used on `luantiserver` (_SmallJoker_)
+
+### Script API / Modding
+- Add `hideable` HUD element field (_cx384_)
+- Detaching players now always happens *before* teleporting (_keilogic_)
+- Many Lua API documentation improvements (_OgelGames_, _Wuzzy_, _SmallJoker_)
+- Warnings are now logged when the "builtin" (main menu, utility) files do not match a checksum (_Desour_)
+   - This helps to detect issues caused by partial or corrupted Luanti installations.
+- `core.(de)compress` now supports `"raw_deflate"` (_Danny Ward_)
+- `core.get_craft_recipe` and `core.get_all_craft_recipes` now ... (_SmallJoker_, _The4codeblocks_)
+   - return `"fuel"` recipes,
+   - the fields `time` and `replacements`.
+- Dark theme for https://api.luanti.org/ (_Wabio_)
+- `visual_scale` no longer has any effect on unsupported `drawtype`s (_DragonWrangler1_)
+- Fixed a case where where `core.get_natural_light` could throw an error (_Jürgen Rühle_)
+- Formspec: Add hypertext support to tooltips ("hypertip") (_kilbith_), improved by _Wuzzy_
+- Formspec: Fix text color and font not applying to field labels (_OgelGames_)
+- Formspec: Add alignment styles to `label[]`, `textarea[]` and `field[]` (_CrazyladMT_)
+- Performance improvements related to texture modifiers and node visuals (_sfan5_)
+- SSCSM: Support for item/node definitions (_ZenonSeth_)
+
+### Misc / Maintenance
+- Various stability or minor security fixes (_JosiahWI_, _sfan5_, _Lars Mueller_)
+- Build system maintenance and improvements (_user333\__, _AFCMS_, _sfan5_)
+- Debugging-related improvements (_Desour_ _sfan5_)
+- Funding information is now available under FUNDING.yml (_rubenwardy_)
+- Code maintenance, improvements (_SmallJoker_, _sfan5_, _Lars Mueller_, _cx384_)
+- CPCSM/SSCSM fixes (_nerzhul_)
+- New policy for generative AI contributions (_Vincent Robinson_)
+- Multiple security fixes (_sfan5_, _red-001_, _Lars Mueller_)
+
+
 ## 5.16.0 → 5.16.1
 
 **[Release](https://github.com/luanti-org/luanti/releases/tag/5.16.1)**
