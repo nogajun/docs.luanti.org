@@ -73,8 +73,8 @@ Released on 20 August 2026.
 - Funding information is now available under FUNDING.yml (_rubenwardy_)
 - Code maintenance, improvements (_SmallJoker_, _sfan5_, _Lars Mueller_, _cx384_)
 - CPCSM/SSCSM fixes (_nerzhul_)
-- New policy for generative AI contributions (_Vincent Robinson_)
-- Multiple security fixes (_sfan5_, _red-001_, _Lars Mueller_)
+- [New policy](https://github.com/luanti-org/luanti/blob/master/doc/developing/ai_policy.md) for generative AI contributions (_Vincent Robinson_)
+- Multiple security fixes (_sfan5_, _red-001_, _Lars Mueller_, _rubenwardy_)
 
 
 ## 5.16.0 → 5.16.1
