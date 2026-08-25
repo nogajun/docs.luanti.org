@@ -18,6 +18,14 @@ This Wiki page contains the meeting plans for upcoming meetings, and meeting not
 
 **Remember to post meetings in the [GitHub discussions](https://github.com/orgs/luanti-org/discussions) in advance**
 
+## Next meeting tbd
+
+**PR discussion/reviews**
+- [Visual Effects Vol. 2](https://github.com/luanti-org/luanti/pull/15417) (get merged soon in dev cycle?)
+
+**Issues**
+- decide between [curl websockets](https://github.com/luanti-org/luanti/issues/17432) and [luasockets](https://github.com/luanti-org/luanti/issues/10120)
+
 ## 2026-08-02
 
 Add your points here. Most important comes first.
