@@ -27,11 +27,11 @@ Add your points here. Most important comes first.
 - release RC build
 
 **PR discussion/reviews**
-- Decide which feature PRs to still include in 5.17.0, including
-  - [Visual Effects Vol. 2](https://github.com/luanti-org/luanti/pull/15417) (long overdue)
-  - [Android: access to Luanti's data directory using DocumentsProvider](https://github.com/luanti-org/luanti/pull/17115)
-  - [SSCSM: Wire up item/node definitions](https://github.com/luanti-org/luanti/pull/17326) - is this ready? does it matter for release?
-  - [Make Luanti buildable with ANGLE for macOS, iOS and iPhoneSimulator](https://github.com/luanti-org/luanti/pull/15451)
+
+- [Visual Effects Vol. 2](https://github.com/luanti-org/luanti/pull/15417) (long overdue)
+- [Make Luanti buildable with ANGLE for macOS, iOS and iPhoneSimulator](https://github.com/luanti-org/luanti/pull/15451)
+- [Add SSAA with SSIM-based perceptual downscaling](https://github.com/luanti-org/luanti/pull/13959)
+  - Oldest PR. Does anyone support the concept?
 
 **Issues**
 - what do we do about [Severe rendering regression when array textures are used](https://github.com/luanti-org/luanti/issues/16896)? apply the hotfix for another release?
