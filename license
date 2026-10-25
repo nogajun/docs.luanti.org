@@ -2,9 +2,12 @@ anything in /content, /static/images
 * minetest/luanti authors and contributors
 * CC-BY-SA-3.0
 
-/static/favicon.png
-* erle
+/static/luanti.svg
+* erle (Luanti logo)
 * CC-BY-SA-3.0
+
+/static/favicon.svg
+* erle (Luanti logo, CC-BY-SA-3.0), Lucide contributors (book icon, ISC)
 
 anything else
 * wsor4035, minetest/luanti authors and contributors

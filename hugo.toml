@@ -9,6 +9,7 @@ enableGitInfo = true
     BookSection = '*'
     BookRepo = 'https://github.com/luanti-org/docs.luanti.org'
     BookEditPath = 'edit/master'
+    BookFavicon = 'favicon.svg'
 
 # Links shown in the site header, and at the bottom of the side menu on narrow screens
 [menu]
